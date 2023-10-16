@@ -33,12 +33,12 @@ int main(){
     cout << "Welcome!!!" << endl;
     char ch;
     //const char ENTER = 13;
-    string input1, input2, output1, output2;
-    SHA256 in, check;
     bool ex = false;
     while (ex == false){
+        string input1, input2, output1, output2;
+        SHA256 in, check;
         cout << "Input to hash (type 'q' to quit): ";
-        ch = getch();
+        ch = 0;
         while(ch != 10){
             if (ch != 0) {
                 input1 += ch;
@@ -47,13 +47,17 @@ int main(){
             ch = getch();
         }
         cout << endl;
-        if (input1 != "q"){
+        if (input1 == "q"){
+            ex = true;
+            break;
+        }
+        else{
             in.update(input1);
             uint8_t * digest1 = in.digest();
             output1 = SHA256::toString(digest1);
             cout << "Hashed: " << output1 << endl;
             cout << "To confirm: ";
-            ch = getch();
+            ch = 0;
             while(ch != 10){
                 if (ch != 0) {
                     input2 += ch;
@@ -67,17 +71,15 @@ int main(){
             output2 = SHA256::toString(digest2);
             cout << "Hashed: " << output2 << endl;
             if (output1 == output2){
-                cout << "Great! You are good at remembering your password." << endl;
-
+                cout << "Inputs matched!! You are good at remembering your passwords." << endl;
+                //cout << input1 << "  " << input2 << endl;
             }
             else {
                 cout << "Inputs didn't match!!" << endl;
+                //cout << input1 << "  " << input2 << endl;
             }
             delete[] digest1;
             delete[] digest2;
-        }
-        else{
-            ex = true;
         }
     }
     cout << "Enjoy!!" << endl;
