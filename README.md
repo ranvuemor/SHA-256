@@ -1,8 +1,8 @@
-**SHA256 Hasing with Salt
+## SHA256 Hasing with Salt
 
 A simple implementation of SHA256 Hasing with Salt in C++
 
-***Example usage
+### Example usage
 
 Run "./test":
 
