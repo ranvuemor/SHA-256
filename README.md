@@ -1,6 +1,6 @@
-## SHA256 Hashing with Salt
+## SHA256 Salted Hashing
 
-A simple implementation of SHA256 Hasing with Salt in C++
+A simple implementation of SHA256 Hashing with Salt in C++
 
 ### Example usage
 
